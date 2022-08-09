@@ -1,0 +1,14 @@
+<style type="text/css">
+.box1{
+width:60px;
+float:left;
+background:green;
+}
+.box {
+background:blue;
+float:right;
+width:70px
+}
+</style>
+<span class='box1'>ini box dengan float left</span>
+<span class='box'>ini box tanpa margin</span>
