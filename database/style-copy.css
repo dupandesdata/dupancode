@@ -1,0 +1,38 @@
+
+.form-copy {
+
+border:none;
+
+height:120px;
+
+background:#fff;
+  
+width:70%;
+  
+font-size:5pt;
+
+}
+
+.btn {
+
+width:45px;
+
+border:none;
+
+background:#555;
+
+border-radius:5px;
+
+height:25px;
+
+margin-top:6px;
+
+color:#fff;
+
+}
+
+.btn:hover {
+
+background:#008B8B;
+
+}
