@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  
+    <!-- Required meta tags -->
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+ 
+    <!-- Data website -->
+<title><data:blog.pageTitle/></title>
+
+    <!-- Data style css -->
+ <link href='https://dupandesdata.github.io/style/linktree1.css' rel='stylesheet'/>
+</head>
+<body>
+    <!-- Header + Navigasi Start -->
+<header>
+    <section class="logo">My Website</section>
+    <nav>
+        <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </nav>
+</header>
+    <!-- Header + Navigasi And. --> 
+    <!-- Content Start -->
+<main>
+    <!-- Artikel Start -->
+    <article>
+        <h1>Hello World </h1>
+        <p>ini adalah paragraf</p>
+    </article>
+    <!-- Artikel And -->
+    <!-- Aside Sidebar Start -->
+    <aside>
+        <section>content 1</section>
+        <section>content 2</section>
+        <section>content 3</section>
+    </aside>
+    <!-- Aside Sidebar And -->
+</main>
+    <!-- Content And -->
+    <!-- Content Footer Start -->
+<footer> dupancode.my.id </footer>
+    <!-- Content Footer And -->
+</body>
+</html>
