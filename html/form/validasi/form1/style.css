@@ -1,0 +1,12 @@
+form {
+  background: yellow;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+form input:valid {
+  outline-color: green;
+}
+form input:invalid {
+  outline-color: red;
+}
