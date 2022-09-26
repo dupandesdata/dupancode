@@ -11,6 +11,3 @@ form input:valid {
 form input:invalid {
   outline-color: red;
 }
-fieldset:invalid ~ fieldset {
-  display: none;
-}
