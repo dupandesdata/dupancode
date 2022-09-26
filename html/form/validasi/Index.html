@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <title>validasi input</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<form>
+  <label for="name">Name Lengkap</label>
+  <input minlength="5" maxlength="30" id="name" type="text" required/>
+  <label for="number">Nomor Hp</label>
+  <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number" maxlength = "13"/>
+  <label for="email">Email</label>
+  <input minlength="7" maxlength="45" id="email" type="email" required/>
+</form>
+</body>
+</html>
