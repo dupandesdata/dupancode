@@ -1,0 +1,22 @@
+form {
+  background: yellow;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+data-input {
+  display: flex;
+}
+ form input {
+  width: 150px;
+}
+form input:invalid + .validity::after {
+  content: "✖";
+  color: red;
+  padding-left: 5px;
+}
+form input:valid + .validity::after {
+  content: "✓";
+  color: green;
+  padding-left: 5px;
+}
