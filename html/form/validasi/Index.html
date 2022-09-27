@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <title>validasi input</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<form>
+  <label for="name">Name Lengkap</label>
+  <div class="data-input">
+   <input id="name" type="text" pattern="(?=.*[A-Z])(?=.*[^0-9]).{5,}" title="Masukan Sesuai Format" placeholder="Doe Jonh" required/>
+   <span class="validity"></span>
+  </div>
+  <label for="number">Nomor Hp</label>
+  <div class="data-input">
+  <input id="number" type = "tel" pattern="[+62]{1}[0-9]\d{13}" placeholder="+628123456789" title="Masukan Sesuai Format" required/>
+   <span class="validity"></span>
+  </div>
+  <label for="email">Email</label>
+  <div class="data-input">
+  <input id="email" type="email" pattern="[a-z0-9.@-_]{5,}" placeholder="your@gmail.com" title="Masukan Sesuai Format" required/>
+   <span class="validity"></span>
+  </div>
+  <label for="password">password</label>
+  <div class="data-input">
+  <input id="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="8 character @$_-" title="Masukan Sesuai Format" required/>
+   <span class="validity"></span>
+  </div>
+</form>
+</body>
+</html>
