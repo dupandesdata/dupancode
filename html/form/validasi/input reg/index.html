@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Form registrasi data</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://dupandesdata.github.io/style/cssreset.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <div class="login">
+    <h2 class="login-header">Form Register </h2>
+    <form class="login-container">
+      <label for="name">Name Lengkap</label>
+      <div class="data-input">
+        <input id="name" type="text" pattern="(?=.*[A-Z])(?=.*[^0-9]).{5,}" title="Masukan Sesuai Format"
+          placeholder="Doe Jonh" required />
+        <span class="validity"></span>
+      </div>
+      <label for="number">Nomor Hp</label>
+      <div class="data-input">
+        <input id="number" type="tel" pattern="[+62]{1}[0-9]\d{13}" placeholder="+628123456789"
+          title="Masukan Sesuai Format" required />
+        <span class="validity"></span>
+      </div>
+      <label for="email">Email</label>
+      <div class="data-input">
+        <input id="email" type="email" pattern="[a-z0-9.@-_]{5,}" placeholder="your@gmail.com"
+          title="Masukan Sesuai Format" required />
+        <span class="validity"></span>
+      </div>
+      <label for="password">password</label>
+      <div class="data-input">
+        <input id="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          placeholder="8 character @$_-" title="Masukan Sesuai Format" required />
+        <span class="validity"></span>
+      </div>
+    <button onclick="reg()" type="submit">Registrasi</button>
+    </form>
+    <footer>© dupancode.my.id</footer>
+  </div>
+  <p>this is the result of learning about input validation material. <a href="https://www.dupancode.my.id/2022/09/form-validasi-input.html" >Check more.</a></p> 
+ <script src="script.js"></script>
+</body>
+</html>
+</html>
