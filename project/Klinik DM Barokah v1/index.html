@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Klinik DM Barokah</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <h1>Klinik DM Barokah</h1>
+  <form id="input" name="klinik">
+    <select id="mySelect" name="layanan">
+      <option hidden="hidden" selected="selected" value="default">Pilih Obat</option>
+      <option value="5000">Anti Radang</option>
+      <option value="70000">Obat Gigi</option>
+      <option value="150000">Anti Septik</option>
+      <option value="755000">Asam Urat</option>
+      <option value="1255000">Obat Herbal</option>
+      <option value="20000">Obat Mag</option>
+    </select>
+    <section id="data-input">
+      Jumlah Obat
+      <input id="obat" value="" type="number" required />
+    </section>
+    <section id="data-input">
+      Uang Anda
+      <input id="uangP" name="uang" type="number" required />
+    </section>
+    <section id="data-input">
+      Total Diskon
+      <input name="totalDiskon" type="text" disabled />
+    </section>
+    <section id="data-input">
+      Nominal Yang Dibayarkan
+      <input name="nominal" type="text" disabled />
+    </section>
+    <section id="data-input">
+      Uang Kembalian
+      <input name="kembalian" type="text" disabled />
+    </section>
+    <div id="pasanSukses"></div>
+    <div id="error"></div>
+  </form>
+  <section class="btn">
+    <button>Reset</button>
+    <button onclick="myCek()">Cek Harga</button>
+  </section>
+  <script src="script.js"></script>
+</body>
+
+</html>
