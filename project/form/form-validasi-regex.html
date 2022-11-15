@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    form label:not(div label),
+    form span {
+      display: block;
+      margin: 4px 0;
+    }
+    .btn {
+      margin-top: 5px;
+    }
+  </style>
+  <body>
+    <form class="pesan" name="form" action="" method="post">
+      <fieldset>
+        <legend>Form Pendaftaran</legend>
+        <label for="name">Nama</label>
+        <input
+          type="text"
+          id="name"
+          maxlength="20"
+          pattern="(?=.*[A-Z])(?=.*[^0-9]).{5,}"
+          title="Nama tidak dapat menggunakan angka dan simbol"
+          placeholder="Doe Jonh"
+          required
+        />
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          pattern="[@]{1}[a-z0-9]{5,}"
+          placeholder="@yourusername"
+          title="Username harus diawali dengan @ minimal 5 karakter"
+          required
+        />
+        <label for="nohp">Nomor Telepon</label>
+        <input
+          type="tel"
+          id="nohp"
+          pattern="[+62]{1}[0-9]\d{10,13}"
+          placeholder="+628123456789"
+          title="Nomor telepon harus diawali dengan +62xxxx"
+          required
+        />
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          pattern="[a-z0-9.@-_]{5,}"
+          placeholder="your@gmail.com"
+          title="Masukan email"
+          required
+        />
+        <div>
+          <span>Jenis kelamin</span>
+          <input type="radio" id="radio1" value="pria" name="jk" />
+          <label for="radio1">Pria</label><br />
+          <input type="radio" id="radio2" value="wanita" name="jk" />
+          <label for="radio2">Wanita</label><br />
+
+          <label for="jumlah">Kode pos</label><br />
+          <input
+            id="jumlah"
+            type="number"
+            pattern="[0-9/d{5}"
+            title="Masukan kode pos tidak lebih dari 5 digit"
+            required
+          />
+        </div>
+        <label for="address">Alamat</label>
+        <textarea
+          id="address"
+          pattern="[a-z]{15,50}"
+          placeholder="Jl. Gajah Mada no 45 rt 022 rw 003"
+          title="Masukan alamat lengkap 15 - 50 karakter"
+          required
+        ></textarea>
+        <div class="btn">
+          <input type="reset" value="Reset" />
+          <input type="submit" id="myBtn" value="Daftar" />
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
