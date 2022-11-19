@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="in">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Golongan Gaji</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    .container {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      background: #086A47;
+      color: #fff;
+    }
+    header {
+      padding: 10px;
+      text-align: center;
+      font-weight: 500;
+      background: #eaeaea;
+      color: #000;
+    }
+    .form {
+      width: 50%;
+      padding: 5px 20px 20px;
+    }
+    input {
+     display: block;
+     height: 25px;
+     margin: 0 auto;
+     background: #eaeaea;
+     outline: none;
+     border: none;
+    }
+    input:nth-child(2){
+      margin: 5px auto;
+    }
+    input{
+  text-indent: 10px;
+}
+    #ket {
+      width: 100% !important;
+      display: none;
+      font-size: 9pt;
+    }
+      button {
+        width: 50%;
+        margin: 5px auto 0;
+        padding: 4px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+    <header>Cek Golongan Gaji</header>
+    <section class="form">
+    <input
+      type="text"
+      name="userInput"
+      value=""
+      placeholder="Masukan golongan anda"
+    />
+    <input type="number" name="inputDay" size="7" value="" placeholder="Hari kerja">
+    <p id="ket"></p>
+    <button onclick="cek()">Cek</button>
+ </section>
+</section>
+    <script>
+      let output = document.getElementById("ket");
+      let outputGaji = document.getElementById("gaji");
+      let gajiA = 10000
+      let gajiB = 20000
+      let gajiC = 30000
+      function cek() {
+      let userInput = document.querySelector("input[name=userInput]").value;
+      let inputDay = document.querySelector("input[name=inputDay]").value;
+        if(userInput[0] == "A" || userInput[0] == "a") {
+          output.innerHTML = "Upah 10.000 perhari" + "<p>Jumlah hari berkerja: " + inputDay + " hari</p>" + "<p>Total gaji: " + gajiA * inputDay + "</p>"
+        } else if(userInput[0] == "B" || userInput[0] == "b") {
+          output.innerHTML = "Upah 20.000 perhari" + "<p>Jumlah hari berkerja: " + inputDay + " hari</p>" + "<p>Total gaji: " + gajiB * inputDay + "</p>"
+        } else if(userInput[0] == "C" || userInput[0] == "c") {
+          output.innerHTML = "Upah 10.000 perhari" + "<p>Jumlah hari berkerja: " + inputDay + " hari</p>" + "<p>Total gaji: " + gajiC * inputDay + "</p>"
+        } else {
+        output.innerHTML = "Golongan kamu tidak tersedia!"
+      }
+      output.style.display = 'block'
+      }
+    </script>
+
+  </body>
+</html>
