@@ -5,28 +5,7 @@
   box-sizing: border-box;
 }
 body {
-  padding: 10px 50px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-h1 {
-  font-size: 160%;
-}
-h2 {
-  font-size: 130%;
-}
-h3 {
-  font-size: 120%;
-  margin: 9px 0 0;
-}
-h4 {
-  font-size: 100%;
-  margin: 8px 0;
-}
-h5 {
-  font-size: 80%;
-}
-h6 {
-  font-size: 60%;
 }
 a {
   text-decoration: none;
