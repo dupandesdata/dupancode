@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web pulsa</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> 
+  <script src="https://kit.fontawesome.com/5988f24ed4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  
+</head>
+<body>
+    <nav class="mytopnav">
+    <div class="logo"><a href="#">Creative Dupan Code</a>
+    <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+    </div>
+  <ul class="menu">
+    <li class="item"><a href="#">Home</a></li>
+    <li class="item"><a href="#">About</a></li>
+    <li class="item has-submenu">
+      <a class="p" tabindex="0">Services</a>
+      <ul class="submenu">
+        <li class="subitem"><a href="#">Design</a></li>
+        <li class="subitem"><a href="#">Development</a></li>
+        <li class="subitem"><a href="#">SEO</a></li>
+        <li class="subitem"><a href="#">Copywriting</a></li>
+      </ul>
+    </li>
+    <li class="item has-submenu">
+      <a tabindex="0">Plans</a>
+      <ul class="submenu">
+        <li class="subitem"><a href="#">Freelancer</a></li>
+        <li class="subitem"><a href="#">Startup</a></li>
+        <li class="subitem"><a href="#">Enterprise</a></li>
+      </ul>
+    </li>
+    <li class="item"><a href="#">Blog</a></li>
+    <li class="item"><a href="#">Contact</a></li>
+  </ul>
+  </nav>
+
+<main>
+  <section class="c-head">
+  <section id="app">
+    <form @submit="post">
+      <span>Mau Order Apa?</span>
+      <!-- Kategori -->
+      <select v-model="selectedCategory">
+        <option v-for="category in categories" :value="category">{{ category }}</option>
+      </select>
+
+      <!-- Provider -->
+      <select v-if="selectedCategory === 'Paket Internet' || selectedCategory === 'Pulsa'" v-model="selectedProvider">
+        <option value="">Pilih Provider</option>
+        <option v-for="provider in operatorselular" :value="provider">{{ provider }}</option>
+      </select>
+
+      <!-- Crypto -->
+      <div v-if="selectedCategory === 'Crypto'">
+        <label>Jual
+          <input type="radio" value="sell">
+        </label>
+        <label>Beli
+          <input type="radio" value="buy">
+        </label>
+        <input type="text" v-model="inputCryptoName" @input="handleInputNameCrypto" placeholder="Masukkan symbol">
+        <input type="number" v-model="inputAmountCrypto" @input="handleInputAmountCrypto" placeholder="Masukkan jumlah">
+        <input type="text" v-model="inputNamaRekCrypto" placeholder="Atas nama rekening / e-wallet">
+        <input type="number" v-model="inputRekeningCrypto" placeholder="Nomor rekening / e-wallet">
+        <p v-if="price !== ''">Harga {{ price }}</p>
+        
+  <div v-html="amount"></div>
+</div>
+
+
+
+      <!-- Nominal -->
+      <select v-if="(selectedCategory === 'Pulsa' || selectedCategory === 'Token PLN')" v-model='selectedNominal'>
+        <option value="">Pilih Nominal</option>
+        <option v-for="nominal in selectedCategory === 'Pulsa' ? listPulsa : listPln" :value="nominal + 2000">{{ nominal }}</option>
+      </select>
+
+      <!-- Pembayaran -->
+      <div v-if="selectedCategory !== '' && selectedCategory !== 'Crypto'">
+        <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type" v-model="selectedPembayaran">
+          <option value="">Pilih Pembayaran</option>
+          <option v-for="(value, key) in pembayaran" :value="key">{{ key }}</option>
+        </select>
+
+<div class="center">
+  <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type">
+    <option value="profile">Profile</option>
+    <option value="word">Word</option>
+    <option value="hashtag">Hashtag</option>
+  </select>
+</div>
+        <!-- Input nohp -->
+        <input type="text" v-model="inputNohp" :disabled="selectedNominal === ''" placeholder="Masukkan Nomor">
+      </div>
+
+      <p v-if="selectedPembayaran !== ''">Metode Pembayaran yang Dipilih: {{ selectedPembayaran }} {{ pembayaran[selectedPembayaran] }}</p>
+      <p v-if="selectedNominal !== ''">Bayar: {{ selectedNominal }}</p>
+      
+  <div class="checkbox-wrapper-28">
+  <input id="tmp-28" type="checkbox" class="promoted-input-checkbox"/>
+  <svg><use xlink:href="#checkmark-28" /></svg>
+  <label for="tmp-28">
+    Baca dulu Ketentuan Pembelian sebelum melakukan order.
+  </label>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol id="checkmark-28" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
+      </path>
+    </symbol>
+  </svg>
+</div>
+
+      <button type="submit" :disabled="selectedNominal === ''">Beli Sekarang!</button>
+    </form>
+  </section>
+  <section class="c-center">
+    <h2>Top Up Pulsa Online Murah Terlengkap & Terpercaya</h2>
+    <p>Layanan Top Up Pulsa, Paket Internet, Token Listrik, Paket Nelpon, Paket Sms, Shopeepay, Ovo, Dana, Gopay, Maxim, Grab dan Bayar Tagihan Listrik, Pdam, Bpjs, Internet, Kredit</p>
+  </section>
+  </section>
+  <section class="c-bottom">
+    <h3>Panduan Transaksi </h3>
+    <h4>Bagaimana Cara Mengisi Kuota?</h4>
+    <p>Cukup lengkapi isian data pada form order, mulai dari pemilihan produk pulsa, saldo e-wallet, beli/jual crypto hingga metode pembayaran yang paling nyaman. Pastikan setiap detail Anda sudah benar, lalu tekan tombol "Order Sekarang" untuk segera melengkapinya.</p>
+    <h4>Apakah Bisa Melakukan Order Tanpa Mendaftar?</h4>
+    <p>Ya, Anda bisa melakukan order tanpa harus mendaftar! Kami menyediakan berbagai metode pembayaran yang luas, mulai dari transfer bank, E-wallet, hingga opsi pembayaran di Alfamart dan bahkan menggunakan cryptocurrency. Langsung pesan produk favorit Anda dengan cepat dan tanpa ribet!</p>
+    <h4>Proses Pengisian Transaksi Cepat dan Efisien!</h4>
+    <p>Kami selalu memberikan yang terbaik! Sistem kami akan segera mengisi kuota Anda begitu pembayaran Anda terkonfirmasi. Jika dalam waktu singkat, tepatnya dalam 5 menit, kuota Anda belum masuk, jangan ragu untuk menghubungi Customer Service kami. Kami siap membantu Anda dengan pengecekan yang teliti. Kepuasan pelanggan adalah prioritas kami!</p>
+    <h4>Kami Selalu Siap Mengatasi Masalah Transaksi Anda!</h4>
+    <p>Jangan khawatir jika transaksi Anda berada dalam status pending atau mengalami kegagalan. Hal ini bisa terjadi karena faktor-faktor seperti mutasi bank sedang offline atau gangguan pada produk. Tim Customer Service kami siap membantu Anda! Segera hubungi kami untuk mendapatkan bantuan dalam pemrosesan ulang atau pengembalian dana (refund) yang cepat dan efisien. Keamanan dan kenyamanan pelanggan adalah prioritas utama kami!</p>
+  </section>
+  
+  <footer>
+    <section class="sf">
+    <div class="f-left">
+      <span>About</span>
+      <p>Alamat: Jl. Budi Santoso No.17, Tanjung Bintang, Lampung Selatan.</p>
+      <p>Owner: Dupandes Milenium KD.</p>
+    </div>
+    <div class="f-center">
+      
+    </div>
+    </section>
+    
+  </footer>
+</main>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    pembayaran: {'BRI': 7006876, 'DANA': 0821},
+    selectedCategory: 'Pulsa',
+    categories: ['Pulsa', 'Token PLN', 'Kirim Uang', 'Crypto', 'Convert Saldo'],
+    operatorselular: ['Telkomsel', 'Indosat', 'XL Axiata', 'Axis', 'Byu'],
+    listPulsa: [10000, 20000, 25000, 50000, 100000],
+    listPln: [20000, 50000, 100000],
+    selectedProvider: '',
+    selectedNominal: '',
+    selectedPembayaran: '',
+    selectedToken: '',
+    inputNohp: '',
+    inputCryptoName: '',
+    inputAmountCrypto: '',
+    inputNamaRekCrypto: '',
+    inputRekeningCrypto: '',
+    selectedCrypto: '',
+    price: '',
+    amount: ''
+  },
+  methods: {
+    async post(event) {
+    event.preventDefault();
+
+    const requestBody = {
+        Produk: this.selectedCategory,
+        Provider: this.selectedProvider,
+        Nominal: this.selectedNominal,
+        Nohp: this.inputNohp,
+        Pembayaran: this.selectedPembayaran,
+        withCredentials: true
+    };
+
+    try {
+        const response = await axios.post('/order', requestBody);
+        if (response.status === 200) {
+            console.log('Permintaan berhasil dengan status 200:', response.data);
+            // Lakukan sesuatu dengan respons jika diperlukan
+        }
+    } catch (error) {
+        console.error('Terjadi kesalahan:', error);
+        // Handle error
+    }
+},
+    handleInputNameCrypto() {
+      const cryptoName = this.inputCryptoName.toUpperCase(); 
+      axios.get(`https://api.binance.me/api/v1/ticker/price?symbol=${cryptoName}USDT`)
+        .then(response => {
+          if (response.status === 200) {
+            this.responseData = response.data;
+            this.price = formatCurrency(response.data.price); 
+          } 
+        })
+        .catch(error => {
+          this.price = 'Crypto tidak tersedia..';
+        });
+    },
+    async handleInputAmountCrypto() {
+        let priceFloat = parseFloat(this.price.replace("$", ""));
+       let amountUsd= priceFloat * parseFloat(this.inputAmountCrypto);
+       
+      if (this.price !== '' && this.inputAmountCrypto !== '') { 
+      axios.get(`https://api.binance.me/api/v1/ticker/price?symbol=USDTIDRT`)
+        .then(response => {
+          if (response.status === 200) {
+            let rate = parseFloat(response.data.price);
+            let amountIdr = amountUsd * rate;
+            let fee = 5000;
+            if (amountIdr > 150000 && amountIdr <= 500000) {
+              fee = fee * 2
+            } else if (amountIdr > 500000) { 
+              fee = amountIdr * 3 / 100
+            };
+            
+            this.amount = `
+            <p>${formatCurrency(amountUsd)}</p>
+            <p>${formatUSDtoIDR(amountIdr)}</p>
+            <p>Biaya transfer: ${formatUSDtoIDR(fee)}</p>`;
+          } 
+        })
+        .catch(error => {
+          this.price = 'Crypto tidak tersedia..';
+        });
+      }
+    }
+  
+
+
+
+  }
+});
+
+
+$(".custom-select").each(function() {
+  var classes = $(this).attr("class"),
+      id      = $(this).attr("id"),
+      name    = $(this).attr("name");
+  var template =  '<div class="' + classes + '">';
+      template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
+      template += '<div class="custom-options">';
+      $(this).find("option").each(function() {
+        template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+      });
+  template += '</div></div>';
+  
+  $(this).wrap('<div class="custom-select-wrapper"></div>');
+  $(this).hide();
+  $(this).after(template);
+});
+$(".custom-option:first-of-type").hover(function() {
+  $(this).parents(".custom-options").addClass("option-hover");
+}, function() {
+  $(this).parents(".custom-options").removeClass("option-hover");
+});
+$(".custom-select-trigger").on("click", function() {
+  $('html').one('click',function() {
+    $(".custom-select").removeClass("opened");
+  });
+  $(this).parents(".custom-select").toggleClass("opened");
+  event.stopPropagation();
+});
+$(".custom-option").on("click", function() {
+  $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
+  $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+  $(this).addClass("selection");
+  $(this).parents(".custom-select").removeClass("opened");
+  $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
+});
+
+    const toggle = document.querySelector(".toggle");
+const menu = document.querySelector(".menu");
+const items = document.querySelectorAll(".item");
+
+/* Toggle mobile menu */
+function toggleMenu() {
+  if (menu.classList.contains("active")) {
+    menu.classList.remove("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+  } else {
+    menu.classList.add("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+  }
+}
+
+/* Activate Submenu */
+function toggleItem() {
+  if (this.classList.contains("submenu-active")) {
+    this.classList.remove("submenu-active");
+  } else if (menu.querySelector(".submenu-active")) {
+    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    this.classList.add("submenu-active");
+  } else {
+    this.classList.add("submenu-active");
+  }
+}
+
+/* Close Submenu From Anywhere */
+function closeSubmenu(e) {
+  if (menu.querySelector(".submenu-active")) {
+    let isClickInside = menu
+      .querySelector(".submenu-active")
+      .contains(e.target);
+
+    if (!isClickInside && menu.querySelector(".submenu-active")) {
+      menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    }
+  }
+}
+/* Event Listeners */
+toggle.addEventListener("click", toggleMenu, false);
+for (let item of items) {
+  if (item.querySelector(".submenu")) {
+    item.addEventListener("click", toggleItem, false);
+  }
+  item.addEventListener("keypress", toggleItem, false);
+}
+document.addEventListener("click", closeSubmenu, false);
+
+function formatCurrency(amount) {
+  const parsedAmount = parseFloat(amount);
+  if (!isNaN(parsedAmount)) {
+    if (parsedAmount >= 1000) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(parsedAmount);
+    } else {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 4 }).format(parsedAmount);
+    }
+  }
+}
+
+function formatUSDtoIDR(amount) {
+  const formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    maximumFractionDigits: 0,
+  });
+  return formatter.format(amount);
+}
+
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
